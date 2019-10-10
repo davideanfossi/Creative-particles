@@ -77,7 +77,7 @@ body{
   }
   
   input:checked + .slider2 {
-    background-color: #2196F3;
+    background-color: #4CAF50;
   }
   
   input:focus + .slider2 {
@@ -90,7 +90,6 @@ body{
     transform: translateX(26px);
   }
   
-  /* Rounded sliders */
   .slider2.round {
     border-radius: 34px;
   }
@@ -105,12 +104,15 @@ body{
     width: 80%;
     height: 6px;;
     margin-top: 27px;
-    opacity: 0.5; 
     align-items: center;
 }
 
+.slider:focus{
+  outline: 0;
+}
+
 .slider:hover {
-    opacity: 1;
+
     cursor: pointer;
 }
 
@@ -131,4 +133,29 @@ body{
     color: white; 
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
+}
+
+#clear{
+  grid-column: 1 / span 2;
+  align-items: center;
+  font-family: Roboto, sans-serif;
+  background-color: rgb(202, 201, 201);
+  height: 30px;
+  width: 90px;
+  margin-top: 10px;
+  border: none;
+}
+
+#clear:hover{
+  background-color: white;
+}
+
+#clear:active{
+  height: 32px;
+  width: 96px;
+  margin-top: 9px;
+}
+
+#clear:focus{
+  outline: 0;
 }

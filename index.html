@@ -7,7 +7,7 @@
     <title>creative Particles</title>
 </head>
 <body>
-    <div class="grid-container">
+    <div class="grid-container">       
         <canvas onmousemove="setXY(event)" id="canvas"></canvas>
         <div id="controls">
             <label  class="switch">
@@ -15,7 +15,10 @@
                 <span class="slider2 round"></span>
             </label>
             <p class="label">Speed</p>
-            <input type="range" min="10" max="100" value="40" class="slider" id="speed">           
+            <input type="range" min="10" max="100" value="40" class="slider" id="speed">  
+            <p class="label">Radius</p>
+            <input type="range" min="50" max="450" value="150" class="slider" id="radius"> 
+            <button onclick="clr()" id="clear">Clear</button>         
         </div>
     </div>
     <script src="script.js"></script>

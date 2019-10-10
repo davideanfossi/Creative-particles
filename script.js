@@ -4,6 +4,7 @@ ctx = canvas.getContext("2d");
 var speedSlider = document.getElementById("speed");
 var slider2 = document.getElementById("onOff");
 var onOff = slider2.checked;
+var radius = document.getElementById("radius");
 
 canvas.setAttribute("width", window.innerWidth - 200 + "px");
 canvas.setAttribute("height", window.innerHeight + "px");
@@ -21,11 +22,14 @@ function turn(){
 
 var mx, my, lastmx, lastmy;
 var speed = speedSlider.value * 0.05;
+var r = radius.value.value / 10;
 
 function setXY(event){
     mx = event.clientX;
     my = event.clientY;
     speed = speedSlider.value * 0.05;
+    r = radius.value / 10;
+
 }
 
 var lastX = 0, lastY = 0;
@@ -64,7 +68,7 @@ class particle{
 
     show(){
         ctx.beginPath();
-        ctx.arc(this.x, this.y, 10, 0, 2*Math.PI, false);
+        ctx.arc(this.x, this.y, r, 0, 2*Math.PI, false);
         this.color = "rgba(" + this.r + ", " + this.b + ", " + this.g + ", " + this.alpha + ")";
         ctx.fillStyle = this.color;
         ctx.fill();
@@ -80,6 +84,12 @@ var particles = [];
 var i = 0;
 var j = 0;
 
+function clr(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    mx = -200;
+    my = -200;
+    particles = [];
+}
 
 var id = setInterval(draw, 10);
 function draw(){
@@ -101,6 +111,8 @@ function draw(){
         j += 0.5;
     }
 }
+
+
 
 
 
