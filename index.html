@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300|Roboto&display=swap" rel="stylesheet">    <link rel="stylesheet" href="style.css">
+    <title>Particles</title>
+</head>
+<body>
+    <div class="grid-container">
+        <canvas onmousemove="setXY(event)" id="canvas"></canvas>
+        <div id="controls">
+            <label  class="switch">
+                <input onclick="turn()" type="checkbox" id="onOff">
+                <span class="slider2 round"></span>
+            </label>
+            <p class="label">Speed</p>
+            <input type="range" min="10" max="100" value="40" class="slider" id="speed">           
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
