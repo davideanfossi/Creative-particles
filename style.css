@@ -176,20 +176,39 @@ body{
   font-family: Roboto, sans-serif;
 }
 
-.shape{
-  align-items: center;
-  font-family: Roboto, sans-serif;
-  background-color: white;
-  height: 50px;
-  width: 70px;
-  margin-top: 15px;
-  text-align: center;
-  border: none;
-  color: black;
+#f{
+  margin-top: 7px;
 }
 
-.shape:active{
-  background-color: #4CAF50;
-  color: white;
-  outline: 0;
+#cShape{
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: white;
 }
+
+#sShape{
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: white;
+}
+
+.shape{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.shape + div{
+  cursor: pointer;
+}
+
+.shape:checked + div{
+  box-sizing: border-box;
+  border: 5px solid #4CAF50;
+}
+
+
+

@@ -8,12 +8,14 @@ class particle{
         lastmx = this.x;
         lastmy = this.y;
 
-        /* this.vx = (Math.random() - 0.5) * speed;
-        this.vy = (Math.random() - 0.5) * speed; */
-
-        this.angle = Math.random() * 2*Math.PI;
-        this.vx = Math.sin(this.angle) * speed * 0.5;
-        this.vy = Math.cos(this.angle) * speed * 0.5;
+        if(setShape === 0){
+            this.vx = (Math.random() - 0.5) * speed;
+            this.vy = (Math.random() - 0.5) * speed;
+        } else {
+            this.angle = Math.random() * 2*Math.PI;
+            this.vx = Math.sin(this.angle) * speed * 0.5;
+            this.vy = Math.cos(this.angle) * speed * 0.5;
+        }   
 
         this.alpha = 1;
         this.r = 0;
@@ -67,7 +69,7 @@ function resize(){
 resize();
 
 var lastX = 0, lastY = 0;
-var mx, my, lastmx, lastmy;
+var mx, my, lastmx, lastmy, setShape = 0;
 
 function turn(){
     particles = [];
@@ -100,6 +102,15 @@ function clr(){
     my = -200;
     particles = [];
 }
+
+function setCircle(){
+    setShape = 1;
+}
+
+function setSquare(){
+    setShape = 0;
+}
+
 
 var particles = [];
 var i = 0;

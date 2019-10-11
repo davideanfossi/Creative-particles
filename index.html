@@ -10,22 +10,37 @@
     <div class="grid-container">       
         <canvas onmousemove="setXY(event)" id="canvas"></canvas>
         <div id="controls">
+
             <h2 id="title">Creative<br>Particles</h2>
+
             <p id="a" class="label">OFF</p>
             <label onclick="turn()" class="switch">
-                <input  type="checkbox" id="onOff" >
+                <input  type="checkbox" id="onOff" checked>
                 <span class="slider2 round"></span>
             </label>
             <p id="b" class="label">ON</p>
+
             <p id="c" class="label">Speed</p>
             <input type="range" min="10" max="100" value="40" class="slider" id="speed">  
+            
             <p id="d" class="label">Radius</p>
             <input type="range" min="50" max="450" value="150" class="slider" id="radius">
+            
             <p id="e" class="label">Color</p>
             <input type="range" min="20" max="250" value="50" class="slider" id="color"> 
+
+            <p id="f" class="label">Halo<br>Shape</p>
+            <label class="shapeSelector">
+                <input onclick="setSquare()" type="radio" id="square" name="shape" class="shape" checked>
+                <div id="sShape"></div>
+            </label>
+            <label class="shapeSelector">
+                <input onclick="setCircle()" type="radio" id="circle" name="shape" class="shape"> 
+                <div id="cShape"></div>
+            </label>
+                     
             <button onclick="clr()" id="clear">Clear</button>
-            <input  type="checkbox" id="circle" class="shape"></input>
-            <input  type="checkbox" id="square" class="shape"></input>
+
         </div>
     </div>
     <script src="script.js"></script>
