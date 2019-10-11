@@ -1,38 +1,4 @@
 // ------------------ MOUSE CLICK + NEW PARTICLES CHANGING COLOR ------------------
-var canvas = document.getElementById("canvas");
-ctx = canvas.getContext("2d");
-var speedSlider = document.getElementById("speed");
-var slider2 = document.getElementById("onOff");
-var onOff = slider2.checked;
-var radius = document.getElementById("radius");
-
-canvas.setAttribute("width", window.innerWidth - 200 + "px");
-canvas.setAttribute("height", window.innerHeight + "px");
-document.getElementById("controls").style.height =  window.innerHeight + "px";
-
-function turn(){
-    onOff = slider2.checked;
-    if (onOff) {
-        canvas.style.cursor = "none";
-    } else {
-        canvas.style.cursor = "default ";
-    }
-}
-
-
-var mx, my, lastmx, lastmy;
-var speed = speedSlider.value * 0.05;
-var r = radius.value.value / 10;
-
-function setXY(event){
-    mx = event.clientX;
-    my = event.clientY;
-    speed = speedSlider.value * 0.05;
-    r = radius.value / 10;
-
-}
-
-var lastX = 0, lastY = 0;
 class particle{
 
     constructor(){
@@ -42,8 +8,12 @@ class particle{
         lastmx = this.x;
         lastmy = this.y;
 
-        this.vx = (Math.random() - 0.5) * speed;
-        this.vy = (Math.random() - 0.5) * speed;
+        /* this.vx = (Math.random() - 0.5) * speed;
+        this.vy = (Math.random() - 0.5) * speed; */
+
+        this.angle = Math.random() * 2*Math.PI;
+        this.vx = Math.sin(this.angle) * speed * 0.5;
+        this.vy = Math.cos(this.angle) * speed * 0.5;
 
         this.alpha = 1;
         this.r = 0;
@@ -80,9 +50,49 @@ class particle{
 
 }
 
-var particles = [];
-var i = 0;
-var j = 0;
+var canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d");
+
+var speedSlider = document.getElementById("speed");
+var slider2 = document.getElementById("onOff");
+var onOff = slider2.checked;
+var radius = document.getElementById("radius");
+var colorSlider = document.getElementById("color");
+
+function resize(){
+    canvas.setAttribute("width", window.innerWidth - 200 + "px");
+    canvas.setAttribute("height", window.innerHeight + "px");
+    document.getElementById("controls").style.height =  window.innerHeight + "px";
+}
+resize();
+
+var lastX = 0, lastY = 0;
+var mx, my, lastmx, lastmy;
+
+function turn(){
+    particles = [];
+    mx = -200;
+    my = -200;
+    onOff = slider2.checked;
+    if (onOff) {
+        canvas.style.cursor = "none";
+    } else {
+        canvas.style.cursor = "default ";
+    }
+}
+
+var speed = speedSlider.value * 0.05;
+var r = radius.value.value / 10;
+var colorSpeed = colorSlider.value / 100;
+console.log(colorSpeed);
+//setXY function is also used to update sliders values.
+function setXY(event){
+    mx = event.clientX;
+    my = event.clientY;
+    speed = speedSlider.value * 0.05;
+    r = radius.value / 10;
+    colorSpeed = colorSlider.value / 100;
+}
 
 function clr(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -90,6 +100,10 @@ function clr(){
     my = -200;
     particles = [];
 }
+
+var particles = [];
+var i = 0;
+var j = 0;
 
 var id = setInterval(draw, 10);
 function draw(){
@@ -108,7 +122,7 @@ function draw(){
                 particles.splice(i, 1);
             }
         }
-        j += 0.5;
+        j += colorSpeed;
     }
 }
 
