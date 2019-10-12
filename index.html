@@ -8,7 +8,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
     <link rel="manifest" href="icons/site.webmanifest">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300|Roboto&display=swap" rel="stylesheet">    <link rel="stylesheet" href="style.css">
-    <title>creative Particles</title>
+    <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
+    <title>Creative Particles</title>
 </head>
 <body onresize="resize()">
     <div class="grid-container">       
@@ -25,10 +26,10 @@
             <p id="b" class="label">ON</p>
 
             <p id="c" class="label">Speed</p>
-            <input type="range" min="10" max="100" value="40" class="slider" id="speed">  
+            <input type="range" min="0" max="200" value="80" class="slider" id="speed">  
             
             <p id="d" class="label">Radius</p>
-            <input type="range" min="50" max="450" value="150" class="slider" id="radius">
+            <input type="range" min="50" max="450" value="120" class="slider" id="radius">
             
             <p id="e" class="label">Color</p>
             <input type="range" min="20" max="250" value="50" class="slider" id="color"> 
@@ -42,8 +43,17 @@
                 <input onclick="setCircle()" type="radio" id="circle" name="shape" class="shape"> 
                 <div id="cShape"></div>
             </label>
-                     
-            <button onclick="clr()" id="clear">Clear</button>
+
+            <p id="a" class="label">reverse</p>
+            <label onclick="reverse()" class="switch" id="rev">
+                <input  type="checkbox" id="rvs">
+                <span class="slider2 round"></span>
+            </label>
+             
+            <div id="buttons">
+                <button onclick="clr()" class="clear">Clear</button>
+                <button onclick="rst()" class="clear">Reset</button>
+            </div>
 
         </div>
     </div>

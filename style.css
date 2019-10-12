@@ -127,31 +127,30 @@ body{
     font-size: 15px;
 }
 
-#clear{
-  grid-column-start: 1; 
-  grid-column-end: 4; 
-  align-items: center;
+.clear{
+  margin-right: 3px;
+  margin-left: 3px;
   font-family: Roboto, sans-serif;
   background-color: #4CAF50;
   height: 35px;
-  width: 100px;
+  width: 80px;
   margin-top: 15px;
   border: none;
   color: white;
 }
 
-#clear:hover{
-  height: 38px;
-  width: 106px;
+.clear:hover{
+  height: 37px;
+  width: 84px;
   margin-top: 14px;
   cursor: pointer;
 }
 
-#clear:active{
+.clear:active{
   background-color: rgb(84, 194, 87);
 }
 
-#clear:focus{
+.clear:focus{
   outline: 0;
 }
 
@@ -169,11 +168,11 @@ body{
 #title{
   grid-column-start: 1; 
   grid-column-end: 4; 
-  font-size: 25px;
+  font-size: 30px;
+  margin-top: 13px;
   color: white;
   text-align: center;
-  align-items: center;
-  font-family: Roboto, sans-serif;
+  font-family: 'Leckerli One', cursive;
 }
 
 #f{
@@ -210,5 +209,27 @@ body{
   border: 5px solid #4CAF50;
 }
 
+#rev{
+  grid-column-start: 2;
+  grid-column-end: 4;
+  width: 50px;
+  height: 29px;
+}
 
+#rev  .slider2:before{
+  left: 2;
+  bottom: 1.2px;
+}
+
+#rev input:checked + .slider2:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+
+#buttons{
+  grid-column-start: 1; 
+  grid-column-end: 4;
+}
 
