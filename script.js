@@ -53,6 +53,9 @@ canvas.onmousedown = function(down){
         flag = true;
         mx = down.clientX;
         my = down.clientY;
+        speed = speedSlider.value * 0.05;
+        r = radius.value / 10;
+        colorSpeed = colorSlider.value / 100;
     }   
 }
 
