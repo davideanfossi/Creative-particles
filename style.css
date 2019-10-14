@@ -258,3 +258,8 @@ body{
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
 }
+
+#g{
+  margin-left: 25px;
+  margin-top: 15px;
+}
