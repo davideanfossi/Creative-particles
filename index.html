@@ -12,6 +12,9 @@
     <title>Creative Particles</title>
 </head>
 <body onresize="resize()">
+    <div id="overlay" onmousedown="overlayOff(event)">
+        <div id="overlayText">Drag to Play!</div>
+    </div>
     <div class="grid-container">       
         <canvas onmousemove="setXY(event)" id="canvas"></canvas>
         <div id="controls">

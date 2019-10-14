@@ -10,6 +10,7 @@ var colorSlider = document.getElementById("color");
 var rvs = document.getElementById("rvs");
 var revers = rvs.checked;
 var squareBox = document.getElementById("square");
+var overlay = document.getElementById("overlay");
 
 var lastX = 0, lastY = 0;
 var mx, my, lastmx, lastmy, setShape = 0;
@@ -19,11 +20,21 @@ var colorSpeed = colorSlider.value / 100;
 var flag = false;
 
 function resize(){
+    overlay.style.width = window.innerWidth - 200;
     canvas.setAttribute("width", window.innerWidth - 200 + "px");
     canvas.setAttribute("height", window.innerHeight + "px");
     document.getElementById("controls").style.height =  window.innerHeight + "px";
 }
 resize();
+
+function overlayOff(ov){
+    if (ov.button === 0){
+        overlay.style.display = "none";
+        mx = ov.clientX;
+        my = ov.clientY;
+        flag = true;
+    }   
+}
 
 function turn(){
     particles = [];
@@ -101,8 +112,10 @@ var particles = [];
 var i = 0;
 var j = 0;
 
+
 var id = setInterval(draw, 10);
 function draw(){
+    //console.log(mx, my);
     if (onOff) {
         for(var k = 0; k < 4; k++){
             let p = new particle();
