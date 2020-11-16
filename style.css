@@ -9,24 +9,31 @@ body{
     cursor: pointer;
 }
 
+#controls{
+    background-color: #454545;
+    border: solid;
+    border-color: #454545;
+    border-width: 5px;
+    height: 400px;
+    border-width: 0px;
+    width: 200px;
+    margin: 0px;
+}
+
 .grid-container{
-  justify-items: start;
-  align-items: start;
-  display: grid;
-  grid-template-columns: auto 200px;
-  grid-column-gap: 0px;
+    justify-items: start;
+    align-items: start;
+    display: grid;
+    grid-template-columns: auto 200px;
+    grid-column-gap: 0px;
 }
 
 #controls{
-    background-color: #454545;
-    border-width: 5px;
-    height: 400px;
-    border: none;
-    width: 200px;
-    margin: 0px;
+    width: 100%;
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-auto-rows: 90px 60px 60px 60px 60px 60px 60px;
+    grid-template-columns: auto auto;
+    grid-auto-rows: 60px 60px;
+    flex-wrap: wrap;
     align-items: start;
     justify-items: center;
 }
@@ -34,6 +41,7 @@ body{
   .switch {
     position: relative;
     display: inline-block;
+    grid-column: 1 / span 2;
     margin-top: 20px;
     width: 60px;
     height: 34px;
@@ -92,7 +100,6 @@ body{
   }
 
 .slider{
-    grid-column: 2 / span 2;
     -webkit-appearance: none;
     appearance: none;
     width: 80%;
@@ -106,6 +113,7 @@ body{
 }
 
 .slider:hover {
+
     cursor: pointer;
 }
 
@@ -128,6 +136,7 @@ body{
     font-size: 15px;
 }
 
+<<<<<<< HEAD
 .clear{
   margin-right: 3px;
   margin-left: 3px;
@@ -136,10 +145,20 @@ body{
   height: 35px;
   width: 80px;
   margin-top: 15px;
+=======
+#clear{
+  grid-column: 1 / span 2;
+  align-items: center;
+  font-family: Roboto, sans-serif;
+  background-color: rgb(202, 201, 201);
+  height: 30px;
+  width: 90px;
+  margin-top: 10px;
+>>>>>>> parent of b490576... update 2
   border: none;
-  color: white;
 }
 
+<<<<<<< HEAD
 .clear:hover{
   height: 37px;
   width: 84px;
@@ -149,10 +168,21 @@ body{
 
 .clear:active{
   background-color: rgb(84, 194, 87);
+=======
+#clear:hover{
+  background-color: white;
+}
+
+#clear:active{
+  height: 32px;
+  width: 96px;
+  margin-top: 9px;
+>>>>>>> parent of b490576... update 2
 }
 
 .clear:focus{
   outline: 0;
+<<<<<<< HEAD
 }
 
 #a{
@@ -262,4 +292,6 @@ body{
 #g{
   margin-left: 25px;
   margin-top: 15px;
+=======
+>>>>>>> parent of b490576... update 2
 }

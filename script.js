@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 // ------------------ FINAL VERSION ------------------
 var canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
 
+=======
+// ------------------ MOUSE CLICK + NEW PARTICLES CHANGING COLOR ------------------
+var canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d");
+>>>>>>> parent of b490576... update 2
 var speedSlider = document.getElementById("speed");
 var slider2 = document.getElementById("onOff");
 var onOff = slider2.checked;
 var radius = document.getElementById("radius");
+<<<<<<< HEAD
 var colorSlider = document.getElementById("color");
 var rvs = document.getElementById("rvs");
 var revers = rvs.checked;
@@ -40,6 +47,14 @@ function turn(){
     particles = [];
     mx = -600;
     my = -600;
+=======
+
+canvas.setAttribute("width", window.innerWidth - 200 + "px");
+canvas.setAttribute("height", window.innerHeight + "px");
+document.getElementById("controls").style.height =  window.innerHeight + "px";
+
+function turn(){
+>>>>>>> parent of b490576... update 2
     onOff = slider2.checked;
     if (onOff) {
         canvas.style.cursor = "none";
@@ -48,6 +63,7 @@ function turn(){
     }
 }
 
+<<<<<<< HEAD
 canvas.onmousedown = function(down){
     if (down.button === 0){
         flag = true;
@@ -77,6 +93,72 @@ function setXY(event){
         colorSpeed = colorSlider.value / 100;
     }
 }
+=======
+
+var mx, my, lastmx, lastmy;
+var speed = speedSlider.value * 0.05;
+var r = radius.value.value / 10;
+
+function setXY(event){
+    mx = event.clientX;
+    my = event.clientY;
+    speed = speedSlider.value * 0.05;
+    r = radius.value / 10;
+
+}
+
+var lastX = 0, lastY = 0;
+class particle{
+
+    constructor(){
+        this.x = mx;
+        this.y = my;
+
+        lastmx = this.x;
+        lastmy = this.y;
+
+        this.vx = (Math.random() - 0.5) * speed;
+        this.vy = (Math.random() - 0.5) * speed;
+
+        this.alpha = 1;
+        this.r = 0;
+        this.g = 0;
+        this.b = 0;
+        this.frequency = 0.06;
+        this.color = "";
+    }
+
+    update(){
+        this.x += this.vx;
+        this.y += this.vy;
+
+        this.alpha -= 0.018;
+    }
+
+    updateColor(i){
+        this.r = Math.sin(this.frequency*i + 0) * 127 + 128; 
+        this.g = Math.sin(this.frequency*i + 2) * 127 + 128; 
+        this.b = Math.sin(this.frequency*i + 4) * 127 + 128; 
+    }
+
+    show(){
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, r, 0, 2*Math.PI, false);
+        this.color = "rgba(" + this.r + ", " + this.b + ", " + this.g + ", " + this.alpha + ")";
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
+
+    finished(){
+        return this.alpha < 0;
+    }
+
+}
+
+var particles = [];
+var i = 0;
+var j = 0;
+>>>>>>> parent of b490576... update 2
 
 function clr(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -110,12 +192,15 @@ function reverse(){
     my = -600;
 }
 
+<<<<<<< HEAD
 
 var particles = [];
 var i = 0;
 var j = 0;
 
 
+=======
+>>>>>>> parent of b490576... update 2
 var id = setInterval(draw, 10);
 function draw(){
     //console.log(mx, my);
@@ -136,7 +221,7 @@ function draw(){
                 particles.splice(i, 1);
             }
         }
-        j += colorSpeed;
+        j += 0.5;
     }
 }
 

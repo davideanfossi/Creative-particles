@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
     <title>Creative Particles</title>
 </head>
+<<<<<<< HEAD
 <body onresize="resize()">
     <div id="overlay" onmousedown="overlayOff(event)">
         <div id="overlayText">Drag to Play!</div>
@@ -58,6 +59,21 @@
                 <button onclick="rst()" class="clear">Reset</button>
             </div>
 
+=======
+<body>
+    <div class="grid-container">       
+        <canvas onmousemove="setXY(event)" id="canvas"></canvas>
+        <div id="controls">
+            <label  class="switch">
+                <input onclick="turn()" type="checkbox" id="onOff" checked>
+                <span class="slider2 round"></span>
+            </label>
+            <p class="label">Speed</p>
+            <input type="range" min="10" max="100" value="40" class="slider" id="speed">  
+            <p class="label">Radius</p>
+            <input type="range" min="50" max="450" value="150" class="slider" id="radius"> 
+            <button onclick="clr()" id="clear">Clear</button>         
+>>>>>>> parent of b490576... update 2
         </div>
     </div>
     <script src="particle.js"></script>
